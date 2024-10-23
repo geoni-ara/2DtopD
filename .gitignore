@@ -1,23 +1,23 @@
 # Unity generated folders
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/[Ll]ogs/
-/[Uu]ser[Ss]ettings/
+**/[Ll]ibrary/
+**/[Tt]emp/
+**/[Oo]bj/
+**/[Bb]uild/
+**/[Bb]uilds/
+**/[Ll]ogs/
+**/[Uu]ser[Ss]ettings/
 
 # MemoryCaptures
-/[Mm]emoryCaptures/
+**/[Mm]emoryCaptures/
 
 # Recordings
-/[Rr]ecordings/
+**/[Rr]ecordings/
 
 # Asset Store Tools Plugin
-# /[Aa]ssets/AssetStoreTools*
+# **/[Aa]ssets/AssetStoreTools*
 
 # Jetbrains Rider Plugin
-/[Aa]ssets/Plugins/Editor/JetBrains*
+**/[Aa]ssets/Plugins/Editor/JetBrains*
 
 # Visual Studio and Gradle
 .vs/
@@ -60,22 +60,22 @@ crash_reports/
 crashlytics-build.properties
 
 # Packed Addressables
-/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+**/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
 
 # Android Assets
-/[Aa]ssets/[Ss]treamingAssets/aa.meta
-/[Aa]ssets/[Ss]treamingAssets/aa/*
+**/[Aa]ssets/[Ss]treamingAssets/aa.meta
+**/[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # Shader Cache
-/[Ll]ibrary/ShaderCache/
+**/[Ll]ibrary/ShaderCache/
 
 # Unity Package Manager
-/[Pp]ackages/com.unity.*
-/[Pp]ackages/packages-lock.json
+**/[Pp]ackages/com.unity.*
+**/[Pp]ackages/packages-lock.json
 
 # iOS Builds
-/Build/iOS/
-/Build/iPhoneSimulator/
+**/Build/iOS/
+**/Build/iPhoneSimulator/
 *.xcworkspace
 *.xcuserstate
 *.xcuserdatad
@@ -83,14 +83,14 @@ crashlytics-build.properties
 *.xcodeproj/*
 
 # Android Builds
-/Build/Android/
+**/Build/Android/
 *.apk
 *.aab
 
 # IDEs
 .idea/
-/.vscode/
-/.vscode/*
+**/.vscode/
+**/.vscode/*
 
 # Test Results
-/[Tt]est[Rr]esults/
+**/[Tt]est[Rr]esults/
