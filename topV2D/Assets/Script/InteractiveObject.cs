@@ -9,6 +9,7 @@ public class InteractiveObject : MonoBehaviour
 
     public GameObject AttachObject;
     public Transform AttachPoint;
+    public GameObject TopDCamera;
     bool isHolding = false;
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,7 @@ public class InteractiveObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space)){
+        if(Input.GetKeyDown(KeyCode.Space) && TopDCamera.activeSelf){
             if(isHolding){
                 DropObject();
             }else{
@@ -60,6 +61,10 @@ public class InteractiveObject : MonoBehaviour
     void DropObject(){
         if(AttachObject != null){
             AttachObject.transform.SetParent(null);
+            Vector3 dropPosition = AttachPoint.position;
+            dropPosition.z +=1;
+            dropPosition.y -=1;
+            AttachObject.transform.position=dropPosition;
 
             AttachObject = null;
             isHolding = false;
