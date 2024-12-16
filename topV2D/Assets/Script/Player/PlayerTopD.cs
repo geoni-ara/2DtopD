@@ -6,7 +6,8 @@ using UnityEngine.UIElements;
 public class PlayerTopD : MonoBehaviour
 {
     Rigidbody rigid;
-    public Collider pCollider;
+    Collider pCollider;
+
     float moveSpeed = 5;
     // Start is called before the first frame update
     void Awake()
@@ -24,7 +25,12 @@ public class PlayerTopD : MonoBehaviour
         float Horiz = Input.GetAxisRaw ("Horizontal");
         float vertical = Input.GetAxisRaw ("Vertical");
 
-        rigid.velocity = new Vector3 (Horiz * moveSpeed, 0, vertical * moveSpeed);
+        Vector3 moveDirection = new Vector3(Horiz, 0, vertical);
+        rigid.velocity = moveDirection * moveSpeed;
+        if(moveDirection != Vector3.zero){
+            Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
+        }
     }
 
     public void activeTopD(){

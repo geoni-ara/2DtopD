@@ -11,11 +11,6 @@ public class InteractiveObject : MonoBehaviour
     public Transform AttachPoint;
     public GameObject TopDCamera;
     bool isHolding = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -29,6 +24,9 @@ public class InteractiveObject : MonoBehaviour
                     PickUpObject();
                 }
             }
+        }
+        if(AttachObject != null){
+            setPos();
         }
     }
 
@@ -52,9 +50,12 @@ public class InteractiveObject : MonoBehaviour
         if(AttachObject != null){
             AttachObject.transform.position = AttachPoint.position;
             AttachObject.transform.rotation = AttachPoint.rotation;
+            Collider itemCollider = AttachObject.GetComponent<Collider>();
+            itemCollider.enabled = false;
 
             AttachObject.transform.SetParent(AttachPoint);
-            isHolding = true;   
+            isHolding = true;
+
         }
     }
 
@@ -62,12 +63,18 @@ public class InteractiveObject : MonoBehaviour
         if(AttachObject != null){
             AttachObject.transform.SetParent(null);
             Vector3 dropPosition = AttachPoint.position;
-            dropPosition.z +=1;
-            dropPosition.y -=1;
+            dropPosition.y = 0;
             AttachObject.transform.position=dropPosition;
+
+            Collider itemCollider = AttachObject.GetComponent<Collider>();
+            itemCollider.enabled = true;
 
             AttachObject = null;
             isHolding = false;
         }
+    }
+
+    void setPos(){
+        AttachObject.transform.position = AttachPoint.position;
     }
 }
