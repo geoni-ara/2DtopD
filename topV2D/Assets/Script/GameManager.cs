@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,14 +11,15 @@ public class GameManager : MonoBehaviour
     public GameObject CameraTopD;
     public GameObject player2D;
     public GameObject playerTopD;
-
+    public GameObject[] Stage;
+    public GameObject ClearUI;
+    public int mapIndex= 0;
     void  Awake(){
         if (instance == null){
             instance = this;
-            DontDestroyOnLoad(this);
         }
-        else Destroy(this);
         ChangeCamera();
+        activeNextMap(mapIndex);
     }
 
     public void ChangeCamera(){
@@ -38,5 +40,20 @@ public class GameManager : MonoBehaviour
             Camera2D.tag = "MainCamera";
             CameraTopD.tag = "Untagged";
         }
+    }
+
+    public void activeNextMap(int index){
+        if(mapIndex == Stage.Length){
+            Application.Quit();
+            ClearUI.SetActive(true);
+        }else{
+            if(index != 0 ){
+                Stage[index-1].SetActive(false);
+            }
+            Stage[index].SetActive(true);
+            player2D.GetComponent<Player2D>().moveSpawn(mapIndex);
+            playerTopD.GetComponent<PlayerTopD>().moveSpawn(mapIndex);
+        }
+        
     }
 }

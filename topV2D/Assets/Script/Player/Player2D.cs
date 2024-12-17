@@ -9,7 +9,8 @@ public class Player2D : MonoBehaviour
     Rigidbody rigid;
     Collider pCollider;
     int jumpCount = 0;
-    float moveSpeed = 7;
+    float moveSpeed = 5;
+    public Transform[] spawnPoint;
     void Awake(){
         rigid = GetComponent<Rigidbody> ();
         pCollider = GetComponent<BoxCollider> ();
@@ -60,5 +61,9 @@ public class Player2D : MonoBehaviour
         if(collision.gameObject.CompareTag("Platform")){
             jumpCount = 0;
         }
+    }
+
+    public void moveSpawn(int index){
+        transform.position = spawnPoint[index].position;
     }
 }

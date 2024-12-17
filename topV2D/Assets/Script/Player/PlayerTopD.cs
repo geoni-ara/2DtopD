@@ -7,6 +7,7 @@ public class PlayerTopD : MonoBehaviour
 {
     Rigidbody rigid;
     Collider pCollider;
+    public Transform[] spawnPoint;
 
     float moveSpeed = 5;
     // Start is called before the first frame update
@@ -42,5 +43,9 @@ public class PlayerTopD : MonoBehaviour
         pCollider.enabled = false;
         rigid.velocity = Vector3.zero;
         this.enabled = false;
+    }
+
+    public void moveSpawn(int index){
+        transform.position = spawnPoint[index].position;
     }
 }
